@@ -16,19 +16,23 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
+          registry-url: 'https://npm.pkg.github.com'
+
       - run: npm install
       - run: npm run build
 
       - name: Configure npm for GitHub Packages
         run: |
-          echo "@fThAbhishek-Pandey:https://npm.pkg.github.com/" > .npmrc
-          echo '//npm.pkg.github.com/:_authToken=${ NPM_TOKEN }' >> .npmrc
-
-      - run: npm publish
-        working-directory: ./build
+          echo "@fThAbhishek-Pandey:registry=https://npm.pkg.github.com/" > ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
         env:
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish package
+        run: npm publish --access public
+        working-directory: ./build
