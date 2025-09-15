@@ -26,7 +26,7 @@ jobs:
       - name: Configure npm for GitHub Packages
         run: |
           echo "@fThAbhishek-Pandey:https://npm.pkg.github.com/" > .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ NPM_TOKEN }}" >> .npmrc
+          echo '//npm.pkg.github.com/:_authToken=${ NODE_TOKEN }' >> .npmrc
 
       - run: npm publish
         working-directory: ./build
