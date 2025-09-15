@@ -1,4 +1,5 @@
 name: Publish
+
 on:
   push:
     branches:
@@ -12,17 +13,23 @@ jobs:
       packages: write
 
     steps:
+      # 1️⃣ Checkout the repo
       - uses: actions/checkout@v3
 
+      # 2️⃣ Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
           registry-url: 'https://npm.pkg.github.com'
 
+      # 3️⃣ Install dependencies
       - run: npm install
+
+      # 4️⃣ Build the package
       - run: npm run build
 
+      # 5️⃣ Configure npm for GitHub Packages
       - name: Configure npm for GitHub Packages
         run: |
           echo "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}" > ~/.npmrc
@@ -30,6 +37,7 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      # 6️⃣ Publish the package
       - name: Publish package
         run: npm publish --access public
-        working-directory: ./build
+        # Publish from root; make sure package.json is at root
