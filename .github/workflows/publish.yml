@@ -33,7 +33,7 @@ jobs:
       - name: Configure npm for GitHub Packages
         run: |
           echo "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-          echo "@fThAbhishek-Pandey:registry=https://npm.pkg.github.com" >> ~/.npmrc
+          echo "@pandit-abhishek1:registry=https://npm.pkg.github.com" >> ~/.npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
