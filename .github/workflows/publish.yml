@@ -32,8 +32,7 @@ jobs:
           echo "@fThAbhishek-Pandey:registry=https://npm.pkg.github.com/" > .npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TAKEN }}" >> .npmrc
 
-      - name: Publish package
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: npm publish
+      - run: npm publish
+        working-directory: ./build
         env:
           NODE_AUTH_TOKEN: ${{ secrets.microservice }}
