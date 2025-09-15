@@ -22,7 +22,7 @@
   "author": "Abhishek Pandey",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fThAbhishek-Pandey/01SharedLibraryServices.git"
+    "url": "git+https://github.com/pandit-abhishek1/01SharedLibraryServices.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
