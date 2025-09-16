@@ -25,8 +25,9 @@
     "url": "git+https://github.com/pandit-abhishek1/01SharedLibraryServices.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
+  "registry": "https://registry.npmjs.org/",
+  "access": "public"
+},
   "exports": {
     ".": {
       "import": "./esm/index.js",
