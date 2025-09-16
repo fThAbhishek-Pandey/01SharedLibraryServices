@@ -41,18 +41,7 @@ flowchart TD
     end
 
     %% Interfaces
-    <!-- subgraph "Type Definitions (Interfaces)"
-        direction TB
-        AuthI["Auth Interface\n(src/interfaces/auth.interface.ts)"]:::interface
-        BuyerI["Buyer Interface\n(src/interfaces/buyer.interface.ts)"]:::interface
-        SellerI["Seller Interface\n(src/interfaces/seller.interface.ts)"]:::interface
-        OrderI["Order Interface\n(src/interfaces/order.interface.ts)"]:::interface
-        GigI["Gig Interface\n(src/interfaces/gig.interface.ts)"]:::interface
-        ReviewI["Review Interface\n(src/interfaces/review.interface.ts)"]:::interface
-        ChatI["Chat Interface\n(src/interfaces/chat.interface.ts)"]:::interface
-        EmailI["Email Interface\n(src/interfaces/email.interface.ts)"]:::interface
-        SearchI["Search Interface\n(src/interfaces/search.interface.ts)"]:::interface
-    end -->
+    
 
     %% External Dependencies
     subgraph "External Dependencies"
